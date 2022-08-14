@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all where to buys
+      Pairing of all Gifts and their Stores to buy them at:
     </h1>
   </div>
 </div>
@@ -11,17 +11,10 @@
 <div>
   <div>
     <h2>
-      Add a new where to buy
+      Create a new store / gift pairing to allow for maximum flexability
     </h2>
 
     <form action="/insert_where_to_buy" method="post">
-      <%# <div>
-        <label for="gift_id_box">
-          Gift
-        </label>
-
-        <input type="text" id="gift_id_box" name="query_gift_id">
-      </div> %>
 
       <label for="gift_id_box">
           Gift
@@ -47,19 +40,6 @@
         <%end%>
 
       </select>
-        
-
-    <%# <form action="/action_page.php">
-      <label for="cars">Choose a car:</label>
-      <select name="cars" id="cars">
-        <option value="volvo">Volvo</option>
-        <option value="saab">Saab</option>
-        <option value="opel">Opel</option>
-        <option value="audi">Audi</option>
-      </select>
-      <br><br>
-      <input type="submit" value="Submit">
-    </form> %>
 
 
       <button>
@@ -87,10 +67,6 @@
         </th>
 
         <th>
-          Created at
-        </th>
-
-        <th>
           Updated at
         </th>
 
@@ -112,9 +88,6 @@
           <%= a_where_to_buy.shop.name_of_shop %>
         </td>
 
-        <td>
-          <%= time_ago_in_words(a_where_to_buy.created_at) %> ago
-        </td>
         <td>
           <%= time_ago_in_words(a_where_to_buy.updated_at) %> ago
         </td>
