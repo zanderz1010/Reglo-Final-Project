@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all where to buys
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new where to buy
+    </h2>
+
+    <form action="/insert_where_to_buy" method="post">
+      <div>
+        <label for="gift_id_box">
+          Gift
+        </label>
+
+        <input type="text" id="gift_id_box" name="query_gift_id">
+      </div>
+
+      <div>
+        <label for="shop_id_box">
+          Shop
+        </label>
+
+        <input type="text" id="shop_id_box" name="query_shop_id">
+      </div>
+
+      <button>
+        Create where to buy
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Gift
+        </th>
+
+        <th>
+          Shop
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_where_to_buys.each do |a_where_to_buy| %>
+      <tr>
+        <td>
+          <%= a_where_to_buy.id %>
+        </td>
+
+        <td>
+          <%= a_where_to_buy.gift_id %>
+        </td>
+
+        <td>
+          <%= a_where_to_buy.shop_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_where_to_buy.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_where_to_buy.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/where_to_buys/<%= a_where_to_buy.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Where to buy #<%= @the_where_to_buy.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/where_to_buys">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_where_to_buy/<%= @the_where_to_buy.id %>">
+          Delete where to buy
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Gift
+      </dt>
+      <dd>
+        <%= @the_where_to_buy.gift_id %>
+      </dd>
+
+      <dt>
+        Shop
+      </dt>
+      <dd>
+        <%= @the_where_to_buy.shop_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_where_to_buy.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_where_to_buy.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit where to buy
+    </h2>
+
+    <form action="/modify_where_to_buy/<%= @the_where_to_buy.id %>"  method="post" >
+      <div>
+        <label for="gift_id_box">
+          Gift
+        </label>
+
+        <input type="text" id="gift_id_box" name="query_gift_id" value="<%= @the_where_to_buy.gift_id %>">
+      </div>
+
+      <div>
+        <label for="shop_id_box">
+          Shop
+        </label>
+
+        <input type="text" id="shop_id_box" name="query_shop_id" value="<%= @the_where_to_buy.shop_id %>">
+      </div>
+
+      <button>
+        Update where to buy
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

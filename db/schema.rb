@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_14_071135) do
+ActiveRecord::Schema.define(version: 2022_08_14_071250) do
 
   create_table "gifts", force: :cascade do |t|
     t.float "price"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 2022_08_14_071135) do
     t.string "profile_image"
     t.integer "requested_gifts_count"
     t.integer "bought_gifts_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "where_to_buys", force: :cascade do |t|
+    t.integer "gift_id"
+    t.integer "shop_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

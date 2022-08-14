@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Where to buy resource:
+
+  # CREATE
+  post("/insert_where_to_buy", { :controller => "where_to_buys", :action => "create" })
+          
+  # READ
+  get("/where_to_buys", { :controller => "where_to_buys", :action => "index" })
+  
+  get("/where_to_buys/:path_id", { :controller => "where_to_buys", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_where_to_buy/:path_id", { :controller => "where_to_buys", :action => "update" })
+  
+  # DELETE
+  get("/delete_where_to_buy/:path_id", { :controller => "where_to_buys", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Shop resource:
 
   # CREATE
