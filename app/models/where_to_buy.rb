@@ -13,4 +13,5 @@ class WhereToBuy < ApplicationRecord
   belongs_to(:gift, { :class_name => "Gift", :foreign_key => "gift_id", :counter_cache => true })
   belongs_to(:shop, { :required => true, :class_name => "Shop", :foreign_key => "shop_id", :counter_cache => true })
 
+
 end

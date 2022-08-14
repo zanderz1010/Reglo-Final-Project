@@ -23,13 +23,13 @@
         <input type="text" id="website_box" name="query_website">
       </div>
 
-      <div>
+      <%# <div>
         <label for="location_box">
           Location
         </label>
 
         <input type="text" id="location_box" name="query_location">
-      </div>
+      </div> %>
 
       <div>
         <label for="name_of_shop_box">
@@ -37,14 +37,6 @@
         </label>
 
         <input type="text" id="name_of_shop_box" name="query_name_of_shop">
-      </div>
-
-      <div>
-        <label for="where_to_buys_count_box">
-          Where to buys count
-        </label>
-
-        <input type="text" id="where_to_buys_count_box" name="query_where_to_buys_count">
       </div>
 
       <button>
@@ -67,16 +59,12 @@
           Website
         </th>
 
-        <th>
+        <%# <th>
           Location
-        </th>
+        </th> %>
 
         <th>
           Name of shop
-        </th>
-
-        <th>
-          Where to buys count
         </th>
 
         <th>
@@ -102,15 +90,7 @@
         </td>
 
         <td>
-          <%= a_shop.location %>
-        </td>
-
-        <td>
           <%= a_shop.name_of_shop %>
-        </td>
-
-        <td>
-          <%= a_shop.where_to_buys_count %>
         </td>
 
         <td>
