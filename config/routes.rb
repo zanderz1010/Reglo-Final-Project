@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Shop resource:
+
+  # CREATE
+  post("/insert_shop", { :controller => "shops", :action => "create" })
+          
+  # READ
+  get("/shops", { :controller => "shops", :action => "index" })
+  
+  get("/shops/:path_id", { :controller => "shops", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_shop/:path_id", { :controller => "shops", :action => "update" })
+  
+  # DELETE
+  get("/delete_shop/:path_id", { :controller => "shops", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Gift resource:
 
   # CREATE
