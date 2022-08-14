@@ -23,6 +23,11 @@
         <input type="text" id="name_box" name="query_name">
       </div>
 
+
+      <div>
+        <input type="hidden" id="count_of_gifts_box" name="query_gifts_count" value="0">
+      </div>
+
       <button>
         Create category
       </button>
@@ -35,16 +40,13 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          Category ID
-        </th>
 
         <th>
           Category of Item
         </th>
 
         <th>
-          Created at
+          # of Gifts
         </th>
 
         <th>
@@ -57,16 +59,13 @@
 
       <% @list_of_categories.each do |a_category| %>
       <tr>
-        <td>
-          <%= a_category.id %>
-        </td>
 
         <td>
           <%= a_category.name %>
         </td>
 
         <td>
-          <%= time_ago_in_words(a_category.created_at) %> ago
+          <%= a_category.gifts_count %>
         </td>
         <td>
           <%= time_ago_in_words(a_category.updated_at) %> ago
