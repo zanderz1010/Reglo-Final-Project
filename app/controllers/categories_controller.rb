@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
   def create
     the_category = Category.new
     the_category.name = params.fetch("query_name")
-    the_category.gifts_count = params.fetch("query_gifts_count")
+    # the_category.gifts_count = params.fetch("query_gifts_count")
 
     if the_category.valid?
       the_category.save

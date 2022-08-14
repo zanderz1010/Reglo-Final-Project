@@ -25,8 +25,8 @@ class GiftsController < ApplicationController
     the_gift.category_id = params.fetch("query_category_id")
     the_gift.name_of_gift = params.fetch("query_name_of_gift")
     the_gift.requester_id = params.fetch("query_requester_id")
-    the_gift.buyer_id = params.fetch("query_buyer_id")
-    the_gift.where_to_buys_count = params.fetch("query_where_to_buys_count")
+    # the_gift.buyer_id = params.fetch("query_buyer_id")
+    # the_gift.where_to_buys_count = params.fetch("query_where_to_buys_count")
 
     if the_gift.valid?
       the_gift.save

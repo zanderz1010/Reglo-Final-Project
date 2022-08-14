@@ -46,8 +46,8 @@ class UserAuthenticationController < ApplicationController
     @user.shareable_tag = params.fetch("query_shareable_tag")
     @user.bio = params.fetch("query_bio")
     @user.profile_image = params.fetch("query_profile_image")
-    @user.requested_gifts_count = params.fetch("query_requested_gifts_count")
-    @user.bought_gifts_count = params.fetch("query_bought_gifts_count")
+    # @user.requested_gifts_count = params.fetch("query_requested_gifts_count")
+    # @user.bought_gifts_count = params.fetch("query_bought_gifts_count")
 
     save_status = @user.save
 

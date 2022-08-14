@@ -24,11 +24,8 @@
       </div>
 
       <div>
-        <label for="status_of_gift_box">
-          Status of gift
-        </label>
 
-        <input type="text" id="status_of_gift_box" name="query_status_of_gift">
+        <input type="hidden" id="status_of_gift_box" name="query_status_of_gift" value="wanted">
       </div>
 
       <div>
@@ -56,27 +53,8 @@
       </div>
 
       <div>
-        <label for="requester_id_box">
-          Requester
-        </label>
 
-        <input type="text" id="requester_id_box" name="query_requester_id">
-      </div>
-
-      <div>
-        <label for="buyer_id_box">
-          Buyer
-        </label>
-
-        <input type="text" id="buyer_id_box" name="query_buyer_id">
-      </div>
-
-      <div>
-        <label for="where_to_buys_count_box">
-          Where to buys count
-        </label>
-
-        <input type="text" id="where_to_buys_count_box" name="query_where_to_buys_count">
+        <input type="hidden" id="requester_id_box" name="query_requester_id" value="<%= @current_user.id %>">
       </div>
 
       <button>
@@ -123,10 +101,7 @@
           Buyer
         </th>
 
-        <th>
-          Where to buys count
-        </th>
-
+    
         <th>
           Created at
         </th>
@@ -171,10 +146,6 @@
 
         <td>
           <%= a_gift.buyer_id %>
-        </td>
-
-        <td>
-          <%= a_gift.where_to_buys_count %>
         </td>
 
         <td>
