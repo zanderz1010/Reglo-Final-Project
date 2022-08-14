@@ -10,6 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_08_14_070800) do
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "shareable_tag"
+    t.string "bio"
+    t.string "profile_image"
+    t.integer "requested_gifts_count"
+    t.integer "bought_gifts_count"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
