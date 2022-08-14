@@ -1,0 +1,198 @@
+<div>
+  <div>
+    <h1>
+      List of all gifts
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new gift
+    </h2>
+
+    <form action="/insert_gift" method="post">
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price">
+      </div>
+
+      <div>
+        <label for="status_of_gift_box">
+          Status of gift
+        </label>
+
+        <input type="text" id="status_of_gift_box" name="query_status_of_gift">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id">
+      </div>
+
+      <div>
+        <label for="name_of_gift_box">
+          Name of gift
+        </label>
+
+        <input type="text" id="name_of_gift_box" name="query_name_of_gift">
+      </div>
+
+      <div>
+        <label for="requester_id_box">
+          Requester
+        </label>
+
+        <input type="text" id="requester_id_box" name="query_requester_id">
+      </div>
+
+      <div>
+        <label for="buyer_id_box">
+          Buyer
+        </label>
+
+        <input type="text" id="buyer_id_box" name="query_buyer_id">
+      </div>
+
+      <div>
+        <label for="where_to_buys_count_box">
+          Where to buys count
+        </label>
+
+        <input type="text" id="where_to_buys_count_box" name="query_where_to_buys_count">
+      </div>
+
+      <button>
+        Create gift
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Price
+        </th>
+
+        <th>
+          Status of gift
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Name of gift
+        </th>
+
+        <th>
+          Requester
+        </th>
+
+        <th>
+          Buyer
+        </th>
+
+        <th>
+          Where to buys count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_gifts.each do |a_gift| %>
+      <tr>
+        <td>
+          <%= a_gift.id %>
+        </td>
+
+        <td>
+          <%= a_gift.price %>
+        </td>
+
+        <td>
+          <%= a_gift.status_of_gift %>
+        </td>
+
+        <td>
+          <%= a_gift.description %>
+        </td>
+
+        <td>
+          <%= a_gift.category_id %>
+        </td>
+
+        <td>
+          <%= a_gift.name_of_gift %>
+        </td>
+
+        <td>
+          <%= a_gift.requester_id %>
+        </td>
+
+        <td>
+          <%= a_gift.buyer_id %>
+        </td>
+
+        <td>
+          <%= a_gift.where_to_buys_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_gift.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_gift.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/gifts/<%= a_gift.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

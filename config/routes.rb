@@ -2,6 +2,25 @@ Rails.application.routes.draw do
 
 
 
+  # Routes for the Gift resource:
+
+  # CREATE
+  post("/insert_gift", { :controller => "gifts", :action => "create" })
+          
+  # READ
+  get("/gifts", { :controller => "gifts", :action => "index" })
+  
+  get("/gifts/:path_id", { :controller => "gifts", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_gift/:path_id", { :controller => "gifts", :action => "update" })
+  
+  # DELETE
+  get("/delete_gift/:path_id", { :controller => "gifts", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

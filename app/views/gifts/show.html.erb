@@ -1,0 +1,176 @@
+<div>
+  <div>
+    <h1>
+      Gift #<%= @the_gift.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/gifts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_gift/<%= @the_gift.id %>">
+          Delete gift
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Price
+      </dt>
+      <dd>
+        <%= @the_gift.price %>
+      </dd>
+
+      <dt>
+        Status of gift
+      </dt>
+      <dd>
+        <%= @the_gift.status_of_gift %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_gift.description %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_gift.category_id %>
+      </dd>
+
+      <dt>
+        Name of gift
+      </dt>
+      <dd>
+        <%= @the_gift.name_of_gift %>
+      </dd>
+
+      <dt>
+        Requester
+      </dt>
+      <dd>
+        <%= @the_gift.requester_id %>
+      </dd>
+
+      <dt>
+        Buyer
+      </dt>
+      <dd>
+        <%= @the_gift.buyer_id %>
+      </dd>
+
+      <dt>
+        Where to buys count
+      </dt>
+      <dd>
+        <%= @the_gift.where_to_buys_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gift.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_gift.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit gift
+    </h2>
+
+    <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
+      <div>
+        <label for="price_box">
+          Price
+        </label>
+
+        <input type="text" id="price_box" name="query_price" value="<%= @the_gift.price %>">
+      </div>
+
+      <div>
+        <label for="status_of_gift_box">
+          Status of gift
+        </label>
+
+        <input type="text" id="status_of_gift_box" name="query_status_of_gift" value="<%= @the_gift.status_of_gift %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_gift.description %></textarea>
+      </div>
+
+      <div>
+        <label for="category_id_box">
+          Category
+        </label>
+
+        <input type="text" id="category_id_box" name="query_category_id" value="<%= @the_gift.category_id %>">
+      </div>
+
+      <div>
+        <label for="name_of_gift_box">
+          Name of gift
+        </label>
+
+        <input type="text" id="name_of_gift_box" name="query_name_of_gift" value="<%= @the_gift.name_of_gift %>">
+      </div>
+
+      <div>
+        <label for="requester_id_box">
+          Requester
+        </label>
+
+        <input type="text" id="requester_id_box" name="query_requester_id" value="<%= @the_gift.requester_id %>">
+      </div>
+
+      <div>
+        <label for="buyer_id_box">
+          Buyer
+        </label>
+
+        <input type="text" id="buyer_id_box" name="query_buyer_id" value="<%= @the_gift.buyer_id %>">
+      </div>
+
+      <div>
+        <label for="where_to_buys_count_box">
+          Where to buys count
+        </label>
+
+        <input type="text" id="where_to_buys_count_box" name="query_where_to_buys_count" value="<%= @the_gift.where_to_buys_count %>">
+      </div>
+
+      <button>
+        Update gift
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
