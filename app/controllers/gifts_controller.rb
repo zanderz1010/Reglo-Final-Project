@@ -3,7 +3,17 @@ class GiftsController < ApplicationController
   
 
   def home
-    render({ :template => "gifts/home.html.erb" })
+
+    if @current_user == nil
+
+      render({ :template => "gifts/home.html.erb" })
+
+    else
+
+      render({ :template => "gifts/alt_home.html.erb" })
+
+    end
+    
   end
   
   def find
