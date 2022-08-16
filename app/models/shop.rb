@@ -9,6 +9,7 @@
 #  where_to_buys_count :integer
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
+#  user_shop_id        :integer
 #
 class Shop < ApplicationRecord
 
@@ -17,5 +18,6 @@ class Shop < ApplicationRecord
 
   has_many(:gifts, { :through => :where_to_buys, :source => :gift })
 
+  belongs_to(:user_shop, { :required => true, :class_name => "User", :foreign_key => "user_shop_id" })
 
 end

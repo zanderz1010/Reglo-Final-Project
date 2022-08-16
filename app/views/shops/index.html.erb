@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all shops
+      List of your shops
     </h1>
   </div>
 </div>
@@ -59,16 +59,12 @@
           Website
         </th>
 
-        <%# <th>
-          Location
-        </th> %>
-
         <th>
           Name of shop
         </th>
 
         <th>
-          Created at
+          User ID
         </th>
 
         <th>
@@ -94,7 +90,7 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_shop.created_at) %> ago
+          <%= a_shop.user_shop_id %>
         </td>
         <td>
           <%= time_ago_in_words(a_shop.updated_at) %> ago

@@ -1,6 +1,6 @@
 class ShopsController < ApplicationController
   def index
-    matching_shops = Shop.all
+    matching_shops = @current_user.shops
 
     @list_of_shops = matching_shops.order({ :created_at => :desc })
 
@@ -20,8 +20,8 @@ class ShopsController < ApplicationController
   def create
     the_shop = Shop.new
     the_shop.website = params.fetch("query_website")
-    # the_shop.location = params.fetch("query_location")
     the_shop.name_of_shop = params.fetch("query_name_of_shop")
+    the_shop.user_shop_id = @current_user.id
     # the_shop.where_to_buys_count = params.fetch("query_where_to_buys_count")
 
     if the_shop.valid?
