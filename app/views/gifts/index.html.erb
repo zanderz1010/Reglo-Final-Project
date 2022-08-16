@@ -60,11 +60,11 @@
 
         </select>
 
-      <div>
-
-        <input type="hidden" id="requester_id_box" name="query_requester_id" value="<%= @current_user.id %>">
-      </div>
-
+      <%if @current_user != nil%>
+        <div>
+          <input type="hidden" id="requester_id_box" name="query_requester_id" value="<%= @current_user.id %>">
+        </div>
+      <%end%>
       <button>
         Add Gift to List
       </button>

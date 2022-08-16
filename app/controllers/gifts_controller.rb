@@ -1,4 +1,36 @@
 class GiftsController < ApplicationController
+  
+  
+
+  def home
+    render({ :template => "gifts/home.html.erb" })
+  end
+  
+  def find
+
+    @the_first_name = params.fetch("query_first_name_of_desired user")
+    @the_last_name = params.fetch("query_last_name_of_desired user")
+
+    @the_id = User.where({ :first_name => @the_first_name, :last_name => @the_last_name })
+
+    begin
+
+    @matching_gifts = @the_id.first.requested_gifts
+
+    @list_of_gifts = @matching_gifts.order({ :created_at => :desc })
+
+    render({ :template => "gifts/index.html.erb" })
+
+    rescue
+
+      redirect_to("/", { :alert => "The user you have entered does not exist - please check spelling and try again." })
+
+    end
+
+
+  end
+  
+  
   def index
     matching_gifts = Gift.all
 

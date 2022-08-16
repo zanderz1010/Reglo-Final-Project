@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
+ # Homepage
+ get("/", { :controller => "gifts", :action => "home" })
 
+ # Homepage user search
+ get("/find_gifts", { :controller => "gifts", :action => "find" })
 
   # Routes for the Category resource:
 
