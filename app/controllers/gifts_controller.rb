@@ -8,18 +8,28 @@ class GiftsController < ApplicationController
   
   def find
 
-    @the_first_name = params.fetch("query_first_name_of_desired user")
-    @the_last_name = params.fetch("query_last_name_of_desired user")
+    @the_first_name = params.fetch("query_first_name_of_desired_user")
+    @the_last_name = params.fetch("query_last_name_of_desired_user")
+    @the_user_tag = params.fetch("query_link_of_desired_user")
 
-    @the_id = User.where({ :first_name => @the_first_name, :last_name => @the_last_name })
+    if @the_first_name == "NA"
 
+      @the_id = User.where({ :shareable_tag => @the_user_tag })
+
+    else
+
+      @the_id = User.where({ :first_name => @the_first_name, :last_name => @the_last_name })
+
+    end
+
+    
     begin
 
     @matching_gifts = @the_id.first.requested_gifts
 
-    @list_of_gifts = @matching_gifts.order({ :created_at => :desc })
+    @list_of_gifts = @matching_gifts.order({ :created_at => :asc })
 
-    render({ :template => "gifts/index.html.erb" })
+    render({ :template => "gifts/user_index.html.erb" })
 
     rescue
 

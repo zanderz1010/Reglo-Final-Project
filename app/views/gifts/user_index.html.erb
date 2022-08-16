@@ -1,4 +1,105 @@
+<div>
+  <div>
+    <h1>
+      List of all of <%=@the_id.first.first_name%>'s gifts!
+    </h1>
+  </div>
+</div>
 
-<h1> <%=@the_id.first.requested_gifts%> </h1>
-<h1> <%=@matching_gifts%> </h1>
-<h1> <%=@matching_gifts%> </h1>
+<hr>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Gift #
+        </th>
+
+        <th>
+          Price (USD)
+        </th>
+
+        <th>
+          Current Status of gift
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Category
+        </th>
+
+        <th>
+          Name of gift
+        </th>
+
+        <th>
+          Requester
+        </th>
+
+        <th>
+          Buyer
+        </th>
+
+        <th>
+          Date Entered
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_gifts.each do |a_gift| %>
+      <tr>
+        <td>
+          <%= a_gift.id %>
+        </td>
+
+        <td>
+          <%= a_gift.price %>
+        </td>
+
+        <td>
+          <%= a_gift.status_of_gift %>
+        </td>
+
+        <td>
+          <%= a_gift.description %>
+        </td>
+
+        <td>
+          <%= a_gift.category.name %>
+        </td>
+
+        <td>
+          <%= a_gift.name_of_gift %>
+        </td>
+
+        <td>
+          <%= a_gift.user.first_name %> <%= a_gift.user.last_name %>
+        </td>
+
+        <td>
+          <%= a_gift.buyer_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_gift.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/gifts/<%= a_gift.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

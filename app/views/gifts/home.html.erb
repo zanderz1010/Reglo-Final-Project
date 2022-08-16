@@ -6,13 +6,13 @@
 
 
 
-
+<hr>
 
 <div>
   <div>
-    <h2>
+    <h3>
       Enter the First and Last Name of the Person you are looking for:
-    </h2>
+    </h3>
 
     <form action="/find_gifts">
 
@@ -21,7 +21,7 @@
           First Name
         </label>
 
-        <input type="text" id="first_name_of_desired_user" name="query_first_name_of_desired user">
+        <input type="text" id="first_name_of_desired_user" name="query_first_name_of_desired_user">
       </div>
 
 
@@ -30,7 +30,52 @@
           Last Name
         </label>
 
-        <input type="text" id="last_name_of_desired_user" name="query_last_name_of_desired user">
+        <input type="text" id="last_name_of_desired_user" name="query_last_name_of_desired_user">
+      </div>
+
+
+      <div>
+        <input type="hidden" id="link_of_desired_user" name="query_link_of_desired_user" value="NA">
+      </div>
+
+      <button>
+        Search for User
+      </button>
+    </form>
+  </div>
+</div>
+
+
+
+<hr>
+
+
+<div>
+  <div>
+    <h3>
+      Or enter the shareable link for the person you are looking for:
+    </h3>
+
+    <form action="/find_gifts">
+
+
+      <div>
+        <label for="link_of_desired_user">
+          Shareable Link
+        </label>
+
+        <input type="text" id="link_of_desired_user" name="query_link_of_desired_user">
+      </div>
+
+
+
+      <div>
+        <input type="hidden" id="first_name_of_desired_user" name="query_first_name_of_desired_user" value="NA">
+      </div>
+
+
+      <div>
+        <input type="hidden" id="last_name_of_desired_user" name="query_last_name_of_desired_user" value="NA">
       </div>
 
       <button>
