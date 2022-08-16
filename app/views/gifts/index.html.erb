@@ -54,7 +54,7 @@
 
         <select name="query_category_id" id="category_id_box">
 
-        <% Category.all.each do |a_category| %>
+        <% @current_user.categories.each do |a_category| %>
         <option value="<%=a_category.id%>"><%=a_category.name%></option>
         <%end%>
 

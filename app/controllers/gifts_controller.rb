@@ -41,7 +41,7 @@ class GiftsController < ApplicationController
   
   
   def index
-    matching_gifts = Gift.all
+    matching_gifts = @current_user.requested_gifts
 
     @list_of_gifts = matching_gifts.order({ :created_at => :desc })
 
