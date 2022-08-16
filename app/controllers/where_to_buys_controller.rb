@@ -1,6 +1,6 @@
 class WhereToBuysController < ApplicationController
   def index
-    matching_where_to_buys = WhereToBuy.all
+    matching_where_to_buys = @current_user.where_to_buys
 
     @list_of_where_to_buys = matching_where_to_buys.order({ :created_at => :desc })
 
@@ -21,6 +21,7 @@ class WhereToBuysController < ApplicationController
     the_where_to_buy = WhereToBuy.new
     the_where_to_buy.gift_id = params.fetch("query_gift_id")
     the_where_to_buy.shop_id = params.fetch("query_shop_id")
+    the_where_to_buy.user_where_id = @current_user.id
 
     if the_where_to_buy.valid?
       the_where_to_buy.save

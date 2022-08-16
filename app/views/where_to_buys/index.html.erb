@@ -22,7 +22,7 @@
 
       <select name="query_gift_id" id="gift_id_box">
 
-        <% Gift.all.each do |a_gift| %>
+        <% @current_user.requested_gifts.each do |a_gift| %>
         <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
         <%end%>
 
@@ -35,7 +35,7 @@
 
       <select name="query_shop_id" id="shop_id_box">
 
-        <% Shop.all.each do |a_shop| %>
+        <% @current_user.shops.each do |a_shop| %>
         <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
         <%end%>
 
@@ -67,7 +67,7 @@
         </th>
 
         <th>
-          Updated at
+          User ID
         </th>
 
         <th>
@@ -89,7 +89,7 @@
         </td>
 
         <td>
-          <%= time_ago_in_words(a_where_to_buy.updated_at) %> ago
+          <%= a_where_to_buy.user_where_id %>
         </td>
 
         <td>
