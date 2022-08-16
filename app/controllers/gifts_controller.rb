@@ -22,7 +22,6 @@ class GiftsController < ApplicationController
 
     end
 
-    
     begin
 
     @matching_gifts = @the_id.first.requested_gifts
