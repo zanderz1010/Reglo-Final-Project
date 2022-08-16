@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    matching_categories = Category.all
+    matching_categories = @current_user.categories
 
     @list_of_categories = matching_categories.order({ :created_at => :desc })
 
@@ -21,6 +21,7 @@ class CategoriesController < ApplicationController
     the_category = Category.new
     the_category.name = params.fetch("query_name")
     the_category.gifts_count = params.fetch("query_gifts_count")
+    the_category.user_category_id = @current_user.id
 
     if the_category.valid?
       the_category.save

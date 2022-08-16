@@ -24,6 +24,6 @@ class User < ApplicationRecord
 
   has_many(:requested_gifts, { :class_name => "Gift", :foreign_key => "requester_id", :dependent => :destroy })
   has_many(:bought_gifts, { :class_name => "Gift", :foreign_key => "buyer_id", :dependent => :nullify })
-
+  has_many(:categories, { :class_name => "Category", :foreign_key => "user_category_id", :dependent => :destroy })
 
 end

@@ -50,6 +50,10 @@
         </th>
 
         <th>
+          User ID
+        </th>
+
+        <th>
           Updated at
         </th>
 
@@ -67,6 +71,13 @@
         <td>
           <%= a_category.gifts_count %>
         </td>
+
+
+        <td>
+          <%= a_category.user_category_id %>
+        </td>
+
+
         <td>
           <%= time_ago_in_words(a_category.updated_at) %> ago
         </td>
