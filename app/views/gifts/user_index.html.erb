@@ -13,8 +13,13 @@
   <div>
     <table border="1">
       <tr>
+      
         <th>
           Gift #
+        </th>
+
+        <th>
+          Name of gift
         </th>
 
         <th>
@@ -31,10 +36,6 @@
 
         <th>
           Category
-        </th>
-
-        <th>
-          Name of gift
         </th>
 
         <th>
@@ -60,6 +61,10 @@
         </td>
 
         <td>
+          <%= a_gift.name_of_gift %>
+        </td>
+
+        <td>
           <%= a_gift.price %>
         </td>
 
@@ -68,15 +73,11 @@
         </td>
 
         <td>
-          <%= a_gift.description %>
+          <%= a_gift.description %> 
         </td>
 
         <td>
           <%= a_gift.category.name %>
-        </td>
-
-        <td>
-          <%= a_gift.name_of_gift %>
         </td>
 
         <td>

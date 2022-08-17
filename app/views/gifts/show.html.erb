@@ -20,7 +20,7 @@
 
     <dl>
       <dt>
-        Price
+        Price $
       </dt>
       <dd>
         <%= @the_gift.price %>
@@ -58,7 +58,7 @@
         Requester
       </dt>
       <dd>
-        <%= @the_gift.requester_id %>
+        <%= @the_gift.user.first_name + " " + @the_gift.user.last_name%>
       </dd>
 
       <dt>

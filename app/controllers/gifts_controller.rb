@@ -65,7 +65,24 @@ class GiftsController < ApplicationController
 
     @the_gift = matching_gifts.at(0)
 
-    render({ :template => "gifts/show.html.erb" })
+    if @current_user != nil
+
+      if @current_user.id != @the_gift.user.id
+
+        render({ :template => "gifts/user_show.html.erb" })
+
+      else
+
+        render({ :template => "gifts/show.html.erb" })
+
+      end
+
+    else
+
+      render({ :template => "gifts/user_show.html.erb" })
+
+    end
+    
   end
 
   def create
@@ -103,6 +120,34 @@ class GiftsController < ApplicationController
     if the_gift.valid?
       the_gift.save
       redirect_to("/gifts/#{the_gift.id}", { :notice => "Gift updated successfully."} )
+    else
+      redirect_to("/gifts/#{the_gift.id}", { :alert => the_gift.errors.full_messages.to_sentence })
+    end
+  end
+
+  def purchase
+    the_id = params.fetch("path_id")
+    @the_gift = Gift.where({ :id => the_id }).at(0)
+
+    # the_gift.status_of_gift = params.fetch("query_status_of_gift")
+    # the_gift.buyer_id = params.fetch("query_buyer_id")
+    # the_gift.where_to_buys_count = params.fetch("query_where_to_buys_count")
+
+    render({ :template => "gifts/buy_gift.html.erb" })
+   
+  end
+
+
+  def confirm
+    the_id = params.fetch("path_id")
+    the_gift = Gift.where({ :id => the_id }).at(0)
+
+    the_gift.status_of_gift = params.fetch("query_status_of_gift")
+    the_gift.buyer_id = params.fetch("query_buyer_id")
+
+    if the_gift.valid?
+      the_gift.save
+      redirect_to("/gifts/#{the_gift.id}", { :notice => "Gift purchased successfully. Thank you!"} )
     else
       redirect_to("/gifts/#{the_gift.id}", { :alert => the_gift.errors.full_messages.to_sentence })
     end

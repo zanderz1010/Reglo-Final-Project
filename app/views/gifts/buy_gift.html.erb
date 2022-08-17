@@ -1,0 +1,128 @@
+
+
+<div>
+  <div>
+    <h1>
+      Gift #<%= @the_gift.id %> Purchasing Details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/gifts/<%= @the_gift.id %>">
+          Go back
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name of gift
+      </dt>
+
+      <dd>
+        <%= @the_gift.name_of_gift %>
+      </dd>
+
+      <dt>
+        Price $
+      </dt>
+      <dd>
+        <%= @the_gift.price %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_gift.description %>
+      </dd>
+
+      <dt>
+        Category
+      </dt>
+      <dd>
+        <%= @the_gift.category.name %>
+      </dd>
+
+    
+
+      <dt>
+        Requester
+      </dt>
+      <dd>
+        <%= @the_gift.user.first_name + " " + @the_gift.user.last_name%>
+      </dd>
+    </dl>
+  </div>
+</div>
+
+
+
+<hr>
+
+<div>
+    <h2>
+      Pleaes choose one of the following stores to purchase the gift:
+    </h2>
+</div>
+
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Gift
+        </th>
+
+        <th>
+          Stores that Carry Gift
+        </th>
+
+
+        <th>
+          Website for Store
+        </th>
+      </tr>
+
+      <% @the_gift.where_to_buys.each do |a_where_to_buy| %>
+      <tr>
+
+        <td>
+          <%= a_where_to_buy.gift.name_of_gift %>
+        </td>
+
+        <td>
+          <%= a_where_to_buy.shop.name_of_shop %>
+        </td>
+
+        <td>
+          <a href="<%="https://"+ a_where_to_buy.shop.website %>">
+            Link to Website
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Pleaes click button below to confirm that you purchased the gift for <%=@the_gift.user.first_name%>
+    </h2>
+
+    <form action="/confirm_gift/<%= @the_gift.id %>"  method="post" >
+
+      <button>
+        Confirm Purchase
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

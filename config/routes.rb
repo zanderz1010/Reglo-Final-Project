@@ -6,6 +6,14 @@ Rails.application.routes.draw do
  # Homepage user search
  get("/find_gifts", { :controller => "gifts", :action => "find" })
 
+# Buy Gift
+  
+  post("/buy_gift/:path_id", { :controller => "gifts", :action => "purchase" })
+
+# Confirm Purchase of Gift
+  
+post("/confirm_gift/:path_id", { :controller => "gifts", :action => "confirm" })
+
   # Routes for the Category resource:
 
   # CREATE
