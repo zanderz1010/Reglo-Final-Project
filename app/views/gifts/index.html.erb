@@ -78,7 +78,11 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Gift #
+        </th>
+
+         <th>
+          Name of gift
         </th>
 
         <th>
@@ -94,15 +98,7 @@
         </th>
 
         <th>
-          Name of gift
-        </th>
-
-        <th>
           Requester
-        </th>
-
-        <th>
-          Buyer
         </th>
 
         <th>
@@ -119,6 +115,10 @@
           <%= a_gift.id %>
         </td>
 
+         <td>
+          <%= a_gift.name_of_gift %>
+        </td>
+
         <td>
           <%= a_gift.price %>
         </td>
@@ -132,15 +132,7 @@
         </td>
 
         <td>
-          <%= a_gift.name_of_gift %>
-        </td>
-
-        <td>
           <%= a_gift.user.first_name %> <%= a_gift.user.last_name %>
-        </td>
-
-        <td>
-          <%= a_gift.buyer_id %>
         </td>
 
         <td>

@@ -56,7 +56,7 @@
   </div>
 </div>
 
-
+<%if @the_gift.where_to_buys.length != 0%>
 
 <hr>
 
@@ -126,3 +126,13 @@
 </div>
 
 <hr>
+
+
+<%else%>
+
+<h2>
+      This gift has no listed stores to purchase it from. Please ask the user to add a "Where to buy" listing for it.
+</h2>
+
+
+<%end%>

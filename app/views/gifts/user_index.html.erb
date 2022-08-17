@@ -43,10 +43,6 @@
         </th>
 
         <th>
-          Buyer
-        </th>
-
-        <th>
           Date Entered
         </th>
 
@@ -84,10 +80,7 @@
           <%= a_gift.user.first_name %> <%= a_gift.user.last_name %>
         </td>
 
-        <td>
-          <%= a_gift.buyer_id %>
-        </td>
-
+        
         <td>
           <%= time_ago_in_words(a_gift.updated_at) %> ago
         </td>

@@ -109,13 +109,9 @@ class GiftsController < ApplicationController
     the_gift = Gift.where({ :id => the_id }).at(0)
 
     the_gift.price = params.fetch("query_price")
-    the_gift.status_of_gift = params.fetch("query_status_of_gift")
     the_gift.description = params.fetch("query_description")
     the_gift.category_id = params.fetch("query_category_id")
     the_gift.name_of_gift = params.fetch("query_name_of_gift")
-    the_gift.requester_id = params.fetch("query_requester_id")
-    the_gift.buyer_id = params.fetch("query_buyer_id")
-    the_gift.where_to_buys_count = params.fetch("query_where_to_buys_count")
 
     if the_gift.valid?
       the_gift.save
@@ -129,10 +125,6 @@ class GiftsController < ApplicationController
     the_id = params.fetch("path_id")
     @the_gift = Gift.where({ :id => the_id }).at(0)
 
-    # the_gift.status_of_gift = params.fetch("query_status_of_gift")
-    # the_gift.buyer_id = params.fetch("query_buyer_id")
-    # the_gift.where_to_buys_count = params.fetch("query_where_to_buys_count")
-
     render({ :template => "gifts/buy_gift.html.erb" })
    
   end
@@ -142,8 +134,17 @@ class GiftsController < ApplicationController
     the_id = params.fetch("path_id")
     the_gift = Gift.where({ :id => the_id }).at(0)
 
-    the_gift.status_of_gift = params.fetch("query_status_of_gift")
-    the_gift.buyer_id = params.fetch("query_buyer_id")
+    if @current_user != nil
+
+      the_gift.buyer_id = @current_user.id
+
+    else
+
+      the_gift.buyer_id = "99999"
+
+    end
+
+    the_gift.status_of_gift = "Purchased"
 
     if the_gift.valid?
       the_gift.save

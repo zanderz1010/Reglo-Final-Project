@@ -1,5 +1,6 @@
 
 
+
 <div>
   <div>
     <h1>
@@ -73,6 +74,14 @@
 <hr>
 
 
+<%if @the_gift.status_of_gift == "Purchased"%>
+
+    <h2>
+      This gift for <%=@the_gift.user.first_name%> has already been purchased.
+    </h2>
+
+<%else%>
+
 <div>
   <div>
     <h2>
@@ -87,5 +96,9 @@
     </form>
   </div>
 </div>
+
+<%end%>
+
+
 
 <hr>
