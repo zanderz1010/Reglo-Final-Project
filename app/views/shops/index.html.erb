@@ -15,28 +15,21 @@
     </h2>
 
     <form action="/insert_shop" method="post">
-      <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="text" id="website_box" name="query_website">
-      </div>
-
-      <%# <div>
-        <label for="location_box">
-          Location
-        </label>
-
-        <input type="text" id="location_box" name="query_location">
-      </div> %>
-
+      
       <div>
         <label for="name_of_shop_box">
           Name of shop
         </label>
 
         <input type="text" id="name_of_shop_box" name="query_name_of_shop">
+      </div>
+
+      <div>
+        <label for="website_box">
+          Website
+        </label>
+
+        <input type="text" id="website_box" name="query_website">
       </div>
 
       <button>
@@ -64,10 +57,6 @@
         </th>
 
         <th>
-          User ID
-        </th>
-
-        <th>
           Updated at
         </th>
 
@@ -90,15 +79,12 @@
         </td>
 
         <td>
-          <%= a_shop.user_shop_id %>
-        </td>
-        <td>
           <%= time_ago_in_words(a_shop.updated_at) %> ago
         </td>
 
         <td>
           <a href="/shops/<%= a_shop.id %>">
-            Show details
+            Shop details
           </a>
         </td>
       </tr>

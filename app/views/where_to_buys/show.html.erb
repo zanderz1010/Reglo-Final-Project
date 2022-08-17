@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Where to buy #<%= @the_where_to_buy.id %> details
+      Where to buy pairing #<%= @the_where_to_buy.id %> details
     </h1>
 
     <div>
@@ -13,7 +13,7 @@
 
       <div>
         <a href="/delete_where_to_buy/<%= @the_where_to_buy.id %>">
-          Delete where to buy
+          Delete where to buy pairing
         </a>
       </div>
     </div>
@@ -23,21 +23,14 @@
         Gift
       </dt>
       <dd>
-        <%= @the_where_to_buy.gift_id %>
+        <%= @the_where_to_buy.gift.name_of_gift %>
       </dd>
 
       <dt>
         Shop
       </dt>
       <dd>
-        <%= @the_where_to_buy.shop_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_where_to_buy.created_at) %> ago
+        <%= @the_where_to_buy.shop.name_of_shop %>
       </dd>
 
       <dt>
@@ -60,24 +53,36 @@
     </h2>
 
     <form action="/modify_where_to_buy/<%= @the_where_to_buy.id %>"  method="post" >
-      <div>
-        <label for="gift_id_box">
+
+      <label for="gift_id_box">
           Gift
-        </label>
+      </label>
 
-        <input type="text" id="gift_id_box" name="query_gift_id" value="<%= @the_where_to_buy.gift_id %>">
-      </div>
+      <select name="query_gift_id" id="gift_id_box">
 
-      <div>
-        <label for="shop_id_box">
+        <% @current_user.requested_gifts.each do |a_gift| %>
+        <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
+        <%end%>
+
+      </select>
+
+
+      <label for="shop_id_box">
           Shop
         </label>
 
-        <input type="text" id="shop_id_box" name="query_shop_id" value="<%= @the_where_to_buy.shop_id %>">
-      </div>
+      <select name="query_shop_id" id="shop_id_box">
+
+        <% @current_user.shops.each do |a_shop| %>
+        <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
+        <%end%>
+
+      </select>
+
+
 
       <button>
-        Update where to buy
+        Update where to buy pairing
       </button>
     </form>
   </div>

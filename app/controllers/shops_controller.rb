@@ -37,9 +37,8 @@ class ShopsController < ApplicationController
     the_shop = Shop.where({ :id => the_id }).at(0)
 
     the_shop.website = params.fetch("query_website")
-    the_shop.location = params.fetch("query_location")
     the_shop.name_of_shop = params.fetch("query_name_of_shop")
-    the_shop.where_to_buys_count = params.fetch("query_where_to_buys_count")
+    
 
     if the_shop.valid?
       the_shop.save

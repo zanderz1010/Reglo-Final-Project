@@ -19,19 +19,6 @@
     </div>
 
     <dl>
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <%= @the_shop.website %>
-      </dd>
-
-      <dt>
-        Location
-      </dt>
-      <dd>
-        <%= @the_shop.location %>
-      </dd>
 
       <dt>
         Name of shop
@@ -40,18 +27,20 @@
         <%= @the_shop.name_of_shop %>
       </dd>
 
+
       <dt>
-        Where to buys count
+        Website
+      </dt>
+      <dd>
+        <%= @the_shop.website %>
+      </dd>
+
+
+      <dt>
+        # of Gifts Available at Shop
       </dt>
       <dd>
         <%= @the_shop.where_to_buys_count %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_shop.created_at) %> ago
       </dd>
 
       <dt>
@@ -70,26 +59,11 @@
 <div>
   <div>
     <h2>
-      Edit shop
+      Edit Shop Details:
     </h2>
 
     <form action="/modify_shop/<%= @the_shop.id %>"  method="post" >
-      <div>
-        <label for="website_box">
-          Website
-        </label>
-
-        <input type="text" id="website_box" name="query_website" value="<%= @the_shop.website %>">
-      </div>
-
-      <div>
-        <label for="location_box">
-          Location
-        </label>
-
-        <input type="text" id="location_box" name="query_location" value="<%= @the_shop.location %>">
-      </div>
-
+      
       <div>
         <label for="name_of_shop_box">
           Name of shop
@@ -98,13 +72,16 @@
         <input type="text" id="name_of_shop_box" name="query_name_of_shop" value="<%= @the_shop.name_of_shop %>">
       </div>
 
+
       <div>
-        <label for="where_to_buys_count_box">
-          Where to buys count
+        <label for="website_box">
+          Website
         </label>
 
-        <input type="text" id="where_to_buys_count_box" name="query_where_to_buys_count" value="<%= @the_shop.where_to_buys_count %>">
+        <input type="text" id="website_box" name="query_website" value="<%= @the_shop.website %>">
       </div>
+
+  
 
       <button>
         Update shop

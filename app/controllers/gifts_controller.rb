@@ -15,6 +15,13 @@ class GiftsController < ApplicationController
     end
     
   end
+
+
+  def instruct
+
+    render({ :template => "gifts/instructions.html.erb" })
+    
+  end
   
   def find
 
