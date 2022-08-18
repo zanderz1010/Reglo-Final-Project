@@ -19,7 +19,7 @@ class Gift < ApplicationRecord
 
   belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "requester_id", :counter_cache => :requested_gifts_count })
   belongs_to(:buyer, { :class_name => "User", :foreign_key => "buyer_id", :counter_cache => :bought_gifts_count })
-  has_many(:where_to_buys, { :class_name => "WhereToBuy", :foreign_key => "gift_id", :dependent => :nullify })
+  has_many(:where_to_buys, { :class_name => "WhereToBuy", :foreign_key => "gift_id", :dependent => :destroy })
   belongs_to(:category, { :required => true, :class_name => "Category", :foreign_key => "category_id", :counter_cache => true })
 
   has_many(:shops, { :through => :where_to_buys, :source => :shop })

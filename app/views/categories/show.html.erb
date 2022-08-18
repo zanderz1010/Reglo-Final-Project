@@ -10,9 +10,9 @@
   <div>
     <div>
       <h1>
-        Category #<%= @the_category.id %> details
+        Category - "<%= @the_category.name %>"" details
       </h1>
-
+      
       <div>
         <div>
           <a href="/categories">
@@ -20,11 +20,14 @@
           </a>
         </div>
 
-        <div>
-          <a href="/delete_category/<%= @the_category.id %>">
-            Delete category
-          </a>
-        </div>
+        <%if @the_category.gifts_count == 0%>
+          <div>
+            <a href="/delete_category/<%= @the_category.id %>">
+              Delete category
+            </a>
+          </div>
+        <%end%>
+
       </div>
 
       <dl>
@@ -36,21 +39,14 @@
         </dd>
 
   <dt>
-          Category count
+          Gifts linked to Category
         </dt>
         <dd>
           <%= @the_category.gifts_count %>
         </dd>
 
         <dt>
-          Created at
-        </dt>
-        <dd>
-          <%= time_ago_in_words(@the_category.created_at) %> ago
-        </dd>
-
-        <dt>
-          Updated at
+          Updated
         </dt>
         <dd>
           <%= time_ago_in_words(@the_category.updated_at) %> ago
@@ -61,28 +57,28 @@
 
   <hr>
 
-
-  <div>
-    <div>
-      <h2>
-        Edit category
-      </h2>
-
-      <form action="/modify_category/<%= @the_category.id %>"  method="post" >
+  <%if @the_category.gifts_count == 0%>
+      <div>
         <div>
-          <label for="name_box">
-            Name
-          </label>
+          <h2>
+            Edit category
+          </h2>
 
-          <input type="text" id="name_box" name="query_name" value="<%= @the_category.name %>">
+          <form action="/modify_category/<%= @the_category.id %>"  method="post" >
+            <div>
+              <label for="name_box">
+                Name
+              </label>
+
+              <input type="text" id="name_box" name="query_name" value="<%= @the_category.name %>">
+            </div>
+
+            <button>
+              Update category
+            </button>
+          </form>
         </div>
-
-        <button>
-          Update category
-        </button>
-      </form>
-    </div>
-  </div>
-
+      </div>
+    <%end%>
   <hr>
 </div>

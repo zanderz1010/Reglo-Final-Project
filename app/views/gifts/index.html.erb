@@ -27,8 +27,9 @@
           <label for="name_of_gift_box">
             Name of gift
           </label>
-
-          <input type="text" id="name_of_gift_box" name="query_name_of_gift">
+          <div>
+            <input type="text" id="name_of_gift_box" name="query_name_of_gift">
+          </div>
         </div>
 
 
@@ -36,8 +37,9 @@
           <label for="description_box">
             Description
           </label>
-
+          <div>
           <textarea id="description_box" name="query_description" rows="3"></textarea>
+          </div>
         </div>
 
 
@@ -45,8 +47,9 @@
           <label for="price_box">
             Price $
           </label>
-
-          <input type="text" id="price_box" name="query_price">
+          <div>
+            <input type="text" id="price_box" name="query_price">
+          </div>
         </div>
 
         <div>
@@ -58,23 +61,25 @@
           <label for="category_id_box">
             Category
           </label>
+          <div>
+            <select name="query_category_id" id="category_id_box">
 
-          <select name="query_category_id" id="category_id_box">
+            <% @current_user.categories.each do |a_category| %>
+            <option value="<%=a_category.id%>"><%=a_category.name%></option>
+            <%end%>
 
-          <% @current_user.categories.each do |a_category| %>
-          <option value="<%=a_category.id%>"><%=a_category.name%></option>
-          <%end%>
-
-          </select>
-
+            </select>
+          </div>
         <%if @current_user != nil%>
           <div>
             <input type="hidden" id="requester_id_box" name="query_requester_id" value="<%= @current_user.id %>">
           </div>
         <%end%>
-        <button>
-          Add Gift to List
-        </button>
+        <div>
+          <button>
+            Add Gift to List
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -130,9 +135,21 @@
             <%= a_gift.description %>
           </td>
 
-          <td>
+          <%if a_gift.category == nil%>
+
+            <% a_gift.category = a_gift.name_of_gift %>
+
+            <td>
+              <%= a_gift.category.name %>
+            </td>
+
+          <%else%>
+
+            <td>
             <%= a_gift.category.name %>
-          </td>
+            </td>
+
+          <%end%>
 
           <td>
             <%= time_ago_in_words(a_gift.updated_at) %> ago

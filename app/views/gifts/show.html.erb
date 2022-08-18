@@ -97,39 +97,43 @@
           <label for="name_of_gift_box">
             Name of gift
           </label>
-
-          <input type="text" id="name_of_gift_box" name="query_name_of_gift" value="<%= @the_gift.name_of_gift %>">
+          <div>
+            <input type="text" id="name_of_gift_box" name="query_name_of_gift" value="<%= @the_gift.name_of_gift %>">
+          </div>
         </div>
         
         
         
         <div>
           <label for="price_box">
-            Price
+            Price $
           </label>
-
-          <input type="text" id="price_box" name="query_price" value="<%= @the_gift.price %>">
+          <div>
+            <input type="text" id="price_box" name="query_price" value="<%= @the_gift.price %>">
+          </div>
         </div>
 
         <div>
           <label for="description_box">
             Description
           </label>
-
-          <textarea id="description_box" name="query_description"><%= @the_gift.description %></textarea>
+          <div>
+           <textarea id="description_box" name="query_description"><%= @the_gift.description %></textarea>
+          </div>
         </div>
 
         <label for="category_id_box">
             Category
           </label>
+        <div>
+          <select name="query_category_id" id="category_id_box">
 
-        <select name="query_category_id" id="category_id_box">
+            <% @current_user.categories.each do |a_cat| %>
+            <option value="<%=a_cat.id%>"><%=a_cat.name%></option>
+            <%end%>
 
-          <% @current_user.categories.each do |a_cat| %>
-          <option value="<%=a_cat.id%>"><%=a_cat.name%></option>
-          <%end%>
-
-        </select>
+          </select>
+        </div>
 
         
 
