@@ -56,13 +56,6 @@
         <%= @the_gift.category.name %>
       </dd>
 
-      <dt>
-        Requester
-      </dt>
-      <dd>
-        <%= @the_gift.user.first_name + " " + @the_gift.user.last_name%>
-      </dd>
-
 
       <dt>
         Current # of Listed Stores to Buy Gift
@@ -72,7 +65,7 @@
       </dd>
 
       <dt>
-        Updated at
+        Updated
       </dt>
       <dd>
         <%= time_ago_in_words(@the_gift.updated_at) %> ago

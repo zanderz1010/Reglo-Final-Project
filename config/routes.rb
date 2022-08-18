@@ -3,7 +3,7 @@ Rails.application.routes.draw do
  # Homepage
  get("/", { :controller => "gifts", :action => "home" })
 
-  # Homepage
+  # Instructions page
   get("/instructions", { :controller => "gifts", :action => "instruct" })
 
  # Homepage user search
