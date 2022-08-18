@@ -1,99 +1,107 @@
-<div>
+ <style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
+
+<div class="spacing">
   <div>
-    <h1>
-      List of all of <%=@the_id.first.first_name%>'s gifts!
-    </h1>
+    <div>
+      <h1>
+        List of all of <%=@the_id.first.first_name%>'s gifts!
+      </h1>
+    </div>
   </div>
-</div>
 
-<hr>
 
-<hr>
-<div>
+
+
   <div>
-    <table border="1">
-      <tr>
-      
-        <th>
-          Gift #
-        </th>
-
-        <th>
-          Name of gift
-        </th>
-
-        <th>
-          Price (USD)
-        </th>
-
-        <th>
-          Current Status of gift
-        </th>
-
-        <th>
-          Description
-        </th>
-
-        <th>
-          Category
-        </th>
-
-        <th>
-          Requester
-        </th>
-
-        <th>
-          Date Entered
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_gifts.each do |a_gift| %>
-      <tr>
-        <td>
-          <%= a_gift.id %>
-        </td>
-
-        <td>
-          <%= a_gift.name_of_gift %>
-        </td>
-
-        <td>
-          <%= a_gift.price %>
-        </td>
-
-        <td>
-          <%= a_gift.status_of_gift %>
-        </td>
-
-        <td>
-          <%= a_gift.description %> 
-        </td>
-
-        <td>
-          <%= a_gift.category.name %>
-        </td>
-
-        <td>
-          <%= a_gift.user.first_name %> <%= a_gift.user.last_name %>
-        </td>
-
+    <div>
+      <table border="1" class="table">
+        <tr>
         
-        <td>
-          <%= time_ago_in_words(a_gift.updated_at) %> ago
-        </td>
+          <th>
+            Gift #
+          </th>
 
-        <td>
-          <a href="/gifts/<%= a_gift.id %>">
-            Gift details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+          <th>
+            Name of gift
+          </th>
+
+          <th>
+            Price (USD)
+          </th>
+
+          <th>
+            Current Status of gift
+          </th>
+
+          <th>
+            Description
+          </th>
+
+          <th>
+            Category
+          </th>
+
+          <th>
+            Requester
+          </th>
+
+          <th>
+            Last Updated
+          </th>
+
+          <th>
+          </th>
+        </tr>
+
+        <% @list_of_gifts.each do |a_gift| %>
+        <tr>
+          <td>
+            <%= a_gift.id %>
+          </td>
+
+          <td>
+            <%= a_gift.name_of_gift %>
+          </td>
+
+          <td>
+            <%= a_gift.price %>
+          </td>
+
+          <td>
+            <%= a_gift.status_of_gift %>
+          </td>
+
+          <td>
+            <%= a_gift.description %> 
+          </td>
+
+          <td>
+            <%= a_gift.category.name %>
+          </td>
+
+          <td>
+            <%= a_gift.user.first_name %> <%= a_gift.user.last_name %>
+          </td>
+
+          
+          <td>
+            <%= time_ago_in_words(a_gift.updated_at) %> ago
+          </td>
+
+          <td>
+            <a href="/gifts/<%= a_gift.id %>">
+              Gift details
+            </a>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+</div>

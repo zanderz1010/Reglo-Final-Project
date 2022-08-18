@@ -1,135 +1,144 @@
-<div>
-  <div>
-    <h1>
-      Gift #<%= @the_gift.id %> details
-    </h1>
+ <style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
 
+<div class="spacing"> 
+  
+  <div>
     <div>
+      <h1>
+        Gift #<%= @the_gift.id %> details
+      </h1>
+
       <div>
-        <a href="/gifts">
-          Go back
-        </a>
+        <div>
+          <a href="/gifts">
+            Go back
+          </a>
+        </div>
+
+        <div>
+          <a href="/delete_gift/<%= @the_gift.id %>">
+            Delete gift
+          </a>
+        </div>
       </div>
 
-      <div>
-        <a href="/delete_gift/<%= @the_gift.id %>">
-          Delete gift
-        </a>
-      </div>
-    </div>
-
-    <dl>
+      <dl>
 
 
-      <dt>
-        Name of gift
-      </dt>
-      <dd>
-        <%= @the_gift.name_of_gift %>
-      </dd>
-
-      <dt>
-        Price $
-      </dt>
-      <dd>
-        <%= @the_gift.price %>
-      </dd>
-
-      <dt>
-        Status of gift
-      </dt>
-      <dd>
-        <%= @the_gift.status_of_gift %>
-      </dd>
-
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_gift.description %>
-      </dd>
-
-      <dt>
-        Category
-      </dt>
-      <dd>
-        <%= @the_gift.category.name %>
-      </dd>
-
-
-      <dt>
-        Current # of Listed Stores to Buy Gift
-      </dt>
-      <dd>
-        <%= @the_gift.where_to_buys_count %>
-      </dd>
-
-      <dt>
-        Updated
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_gift.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit gift
-    </h2>
-
-    <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
-      
-      <div>
-        <label for="name_of_gift_box">
+        <dt>
           Name of gift
-        </label>
+        </dt>
+        <dd>
+          <%= @the_gift.name_of_gift %>
+        </dd>
 
-        <input type="text" id="name_of_gift_box" name="query_name_of_gift" value="<%= @the_gift.name_of_gift %>">
-      </div>
-      
-      
-      
-      <div>
-        <label for="price_box">
-          Price
-        </label>
+        <dt>
+          Price $
+        </dt>
+        <dd>
+          <%= @the_gift.price %>
+        </dd>
 
-        <input type="text" id="price_box" name="query_price" value="<%= @the_gift.price %>">
-      </div>
+        <dt>
+          Status of gift
+        </dt>
+        <dd>
+          <%= @the_gift.status_of_gift %>
+        </dd>
 
-      <div>
-        <label for="description_box">
+        <dt>
           Description
-        </label>
+        </dt>
+        <dd>
+          <%= @the_gift.description %>
+        </dd>
 
-        <textarea id="description_box" name="query_description"><%= @the_gift.description %></textarea>
-      </div>
-
-      <label for="category_id_box">
+        <dt>
           Category
-        </label>
+        </dt>
+        <dd>
+          <%= @the_gift.category.name %>
+        </dd>
 
-      <select name="query_category_id" id="category_id_box">
 
-        <% @current_user.categories.each do |a_cat| %>
-        <option value="<%=a_cat.id%>"><%=a_cat.name%></option>
-        <%end%>
+        <dt>
+          Current # of Listed Stores to Buy Gift
+        </dt>
+        <dd>
+          <%= @the_gift.where_to_buys_count %>
+        </dd>
 
-      </select>
-
-      
-
-      <button>
-        Update gift
-      </button>
-    </form>
+        <dt>
+          Updated
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_gift.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+
+
+  <div>
+    <div>
+      <h2>
+        Edit gift
+      </h2>
+
+      <form action="/modify_gift/<%= @the_gift.id %>"  method="post" >
+        
+        <div>
+          <label for="name_of_gift_box">
+            Name of gift
+          </label>
+
+          <input type="text" id="name_of_gift_box" name="query_name_of_gift" value="<%= @the_gift.name_of_gift %>">
+        </div>
+        
+        
+        
+        <div>
+          <label for="price_box">
+            Price
+          </label>
+
+          <input type="text" id="price_box" name="query_price" value="<%= @the_gift.price %>">
+        </div>
+
+        <div>
+          <label for="description_box">
+            Description
+          </label>
+
+          <textarea id="description_box" name="query_description"><%= @the_gift.description %></textarea>
+        </div>
+
+        <label for="category_id_box">
+            Category
+          </label>
+
+        <select name="query_category_id" id="category_id_box">
+
+          <% @current_user.categories.each do |a_cat| %>
+          <option value="<%=a_cat.id%>"><%=a_cat.name%></option>
+          <%end%>
+
+        </select>
+
+        
+
+        <button>
+          Update gift
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+</div>

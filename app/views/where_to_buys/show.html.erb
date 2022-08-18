@@ -1,91 +1,100 @@
-<div>
-  <div>
-    <h1>
-      Where to buy pairing #<%= @the_where_to_buy.id %> details
-    </h1>
+ <style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
 
+<div class="spacing"> 
+  
+  <div>
     <div>
-      <div>
-        <a href="/where_to_buys">
-          Go back
-        </a>
-      </div>
+      <h1>
+        Where to buy pairing #<%= @the_where_to_buy.id %> details
+      </h1>
 
       <div>
-        <a href="/delete_where_to_buy/<%= @the_where_to_buy.id %>">
-          Delete where to buy pairing
-        </a>
+        <div>
+          <a href="/where_to_buys">
+            Go back
+          </a>
+        </div>
+
+        <div>
+          <a href="/delete_where_to_buy/<%= @the_where_to_buy.id %>">
+            Delete where to buy pairing
+          </a>
+        </div>
       </div>
-    </div>
 
-    <dl>
-      <dt>
-        Gift
-      </dt>
-      <dd>
-        <%= @the_where_to_buy.gift.name_of_gift %>
-      </dd>
-
-      <dt>
-        Shop
-      </dt>
-      <dd>
-        <%= @the_where_to_buy.shop.name_of_shop %>
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_where_to_buy.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit where to buy
-    </h2>
-
-    <form action="/modify_where_to_buy/<%= @the_where_to_buy.id %>"  method="post" >
-
-      <label for="gift_id_box">
+      <dl>
+        <dt>
           Gift
-      </label>
+        </dt>
+        <dd>
+          <%= @the_where_to_buy.gift.name_of_gift %>
+        </dd>
 
-      <select name="query_gift_id" id="gift_id_box">
-
-        <% @current_user.requested_gifts.each do |a_gift| %>
-        <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
-        <%end%>
-
-      </select>
-
-
-      <label for="shop_id_box">
+        <dt>
           Shop
+        </dt>
+        <dd>
+          <%= @the_where_to_buy.shop.name_of_shop %>
+        </dd>
+
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_where_to_buy.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <hr>
+
+
+  <div>
+    <div>
+      <h2>
+        Edit where to buy
+      </h2>
+
+      <form action="/modify_where_to_buy/<%= @the_where_to_buy.id %>"  method="post" >
+
+        <label for="gift_id_box">
+            Gift
         </label>
 
-      <select name="query_shop_id" id="shop_id_box">
+        <select name="query_gift_id" id="gift_id_box">
 
-        <% @current_user.shops.each do |a_shop| %>
-        <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
-        <%end%>
+          <% @current_user.requested_gifts.each do |a_gift| %>
+          <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
+          <%end%>
 
-      </select>
+        </select>
+
+
+        <label for="shop_id_box">
+            Shop
+          </label>
+
+        <select name="query_shop_id" id="shop_id_box">
+
+          <% @current_user.shops.each do |a_shop| %>
+          <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
+          <%end%>
+
+        </select>
 
 
 
-      <button>
-        Update where to buy pairing
-      </button>
-    </form>
+        <button>
+          Update where to buy pairing
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+</div>

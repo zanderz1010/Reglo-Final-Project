@@ -1,99 +1,109 @@
-<div>
+<style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
+
+<div class="spacing">  
+  
+  
   <div>
-    <h1>
-      Pairing of all Gifts and their Stores to buy them at:
-    </h1>
+    <div>
+      <h1>
+        Pairing of all Gifts and their Stores to buy them at:
+      </h1>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
 
-<div>
   <div>
-    <h2>
-      Create a new store / gift pairing to allow for maximum flexability (you can do as many pairs per gift as you like)
-    </h2>
+    <div>
+      <h2>
+        Create a new store / gift pairing to allow for maximum flexability (you can do as many pairs per gift as you like)
+      </h2>
 
-    <form action="/insert_where_to_buy" method="post">
+      <form action="/insert_where_to_buy" method="post">
 
-      <label for="gift_id_box">
-          Gift
-      </label>
-
-      <select name="query_gift_id" id="gift_id_box">
-
-        <% @current_user.requested_gifts.each do |a_gift| %>
-        <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
-        <%end%>
-
-      </select>
-
-
-      <label for="shop_id_box">
-          Shop
+        <label for="gift_id_box">
+            Gift
         </label>
 
-      <select name="query_shop_id" id="shop_id_box">
+        <select name="query_gift_id" id="gift_id_box">
 
-        <% @current_user.shops.each do |a_shop| %>
-        <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
-        <%end%>
+          <% @current_user.requested_gifts.each do |a_gift| %>
+          <option value="<%=a_gift.id%>"><%=a_gift.name_of_gift%></option>
+          <%end%>
 
-      </select>
+        </select>
 
 
-      <button>
-        Create where to buy pairing
-      </button>
-    </form>
+        <label for="shop_id_box">
+            Shop
+          </label>
+
+        <select name="query_shop_id" id="shop_id_box">
+
+          <% @current_user.shops.each do |a_shop| %>
+          <option value="<%=a_shop.id%>"><%=a_shop.name_of_shop%></option>
+          <%end%>
+
+        </select>
+
+
+        <button>
+          Create where to buy pairing
+        </button>
+      </form>
+    </div>
   </div>
-</div>
 
-<hr>
-<div>
+  <hr>
   <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
+    <div>
+      <table border="1" class="table">
+        <tr>
+          <th>
+            ID
+          </th>
 
-        <th>
-          Gift
-        </th>
+          <th>
+            Gift
+          </th>
 
-        <th>
-          Shop
-        </th>
+          <th>
+            Shop
+          </th>
 
-        <th>
-        </th>
-      </tr>
+          <th>
+          </th>
+        </tr>
 
-      <% @list_of_where_to_buys.each do |a_where_to_buy| %>
-      <tr>
-        <td>
-          <%= a_where_to_buy.id %>
-        </td>
+        <% @list_of_where_to_buys.each do |a_where_to_buy| %>
+        <tr>
+          <td>
+            <%= a_where_to_buy.id %>
+          </td>
 
-        <td>
-          <%= a_where_to_buy.gift.name_of_gift %>
-        </td>
+          <td>
+            <%= a_where_to_buy.gift.name_of_gift %>
+          </td>
 
-        <td>
-          <%= a_where_to_buy.shop.name_of_shop %>
-        </td>
+          <td>
+            <%= a_where_to_buy.shop.name_of_shop %>
+          </td>
 
 
-        <td>
-          <a href="/where_to_buys/<%= a_where_to_buy.id %>">
-            Pairing details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+          <td>
+            <a href="/where_to_buys/<%= a_where_to_buy.id %>">
+              Pairing details
+            </a>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+</div>

@@ -1,93 +1,102 @@
-<div>
-  <div>
-    <h1>
-      Shop #<%= @the_shop.id %> details
-    </h1>
+<style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
 
+<div class="spacing">
+
+  <div>
     <div>
+      <h1>
+        Shop #<%= @the_shop.id %> details
+      </h1>
+
       <div>
-        <a href="/shops">
-          Go back
-        </a>
+        <div>
+          <a href="/shops">
+            Go back
+          </a>
+        </div>
+
+        <div>
+          <a href="/delete_shop/<%= @the_shop.id %>">
+            Delete shop
+          </a>
+        </div>
       </div>
 
-      <div>
-        <a href="/delete_shop/<%= @the_shop.id %>">
-          Delete shop
-        </a>
-      </div>
-    </div>
+      <dl>
 
-    <dl>
-
-      <dt>
-        Name of shop
-      </dt>
-      <dd>
-        <%= @the_shop.name_of_shop %>
-      </dd>
-
-
-      <dt>
-        Website
-      </dt>
-      <dd>
-        <%= @the_shop.website %>
-      </dd>
-
-
-      <dt>
-        # of Gifts Available at Shop
-      </dt>
-      <dd>
-        <%= @the_shop.where_to_buys_count %>
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_shop.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
-</div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit Shop Details:
-    </h2>
-
-    <form action="/modify_shop/<%= @the_shop.id %>"  method="post" >
-      
-      <div>
-        <label for="name_of_shop_box">
+        <dt>
           Name of shop
-        </label>
+        </dt>
+        <dd>
+          <%= @the_shop.name_of_shop %>
+        </dd>
 
-        <input type="text" id="name_of_shop_box" name="query_name_of_shop" value="<%= @the_shop.name_of_shop %>">
-      </div>
 
-
-      <div>
-        <label for="website_box">
+        <dt>
           Website
-        </label>
+        </dt>
+        <dd>
+          <%= @the_shop.website %>
+        </dd>
 
-        <input type="text" id="website_box" name="query_website" value="<%= @the_shop.website %>">
-      </div>
 
-  
+        <dt>
+          # of Gifts Available at Shop
+        </dt>
+        <dd>
+          <%= @the_shop.where_to_buys_count %>
+        </dd>
 
-      <button>
-        Update shop
-      </button>
-    </form>
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_shop.updated_at) %> ago
+        </dd>
+      </dl>
+    </div>
   </div>
-</div>
 
-<hr>
+  <hr>
+
+
+  <div>
+    <div>
+      <h2>
+        Edit Shop Details:
+      </h2>
+
+      <form action="/modify_shop/<%= @the_shop.id %>"  method="post" >
+        
+        <div>
+          <label for="name_of_shop_box">
+            Name of shop
+          </label>
+
+          <input type="text" id="name_of_shop_box" name="query_name_of_shop" value="<%= @the_shop.name_of_shop %>">
+        </div>
+
+
+        <div>
+          <label for="website_box">
+            Website
+          </label>
+
+          <input type="text" id="website_box" name="query_website" value="<%= @the_shop.website %>">
+        </div>
+
+    
+
+        <button>
+          Update shop
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <hr>
+</div>

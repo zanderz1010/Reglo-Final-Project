@@ -1,104 +1,103 @@
 
+<style>
+  .spacing {
+    padding-left: 20px;
+  }
+</style>
 
+<div class="spacing">
 
-<div>
   <div>
-    <h1>
-      Gift #<%= @the_gift.id %> Details
-    </h1>
-
     <div>
-      <div>
-        <a href="/">
-          Go back
-        </a>
-      </div>
+      <h1>
+        Gift #<%= @the_gift.id %> Details
+      </h1>
+
+      <dl>
+        <dt>
+          Name of gift
+        </dt>
+
+        <dd>
+          <%= @the_gift.name_of_gift %>
+        </dd>
+
+        <dt>
+          Price $
+        </dt>
+        <dd>
+          <%= @the_gift.price %>
+        </dd>
+
+        <dt>
+          Status of gift
+        </dt>
+        <dd>
+          <%= @the_gift.status_of_gift %>
+        </dd>
+
+        <dt>
+          Description
+        </dt>
+        <dd>
+          <%= @the_gift.description %>
+        </dd>
+
+        <dt>
+          Category
+        </dt>
+        <dd>
+          <%= @the_gift.category.name %>
+        </dd>
+
+      
+
+        <dt>
+          Requester
+        </dt>
+        <dd>
+          <%= @the_gift.user.first_name + " " + @the_gift.user.last_name%>
+        </dd>
+
+        <dt>
+          Created
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_gift.updated_at) %> ago
+        </dd>
+      </dl>
     </div>
-
-    <dl>
-      <dt>
-        Name of gift
-      </dt>
-
-      <dd>
-        <%= @the_gift.name_of_gift %>
-      </dd>
-
-      <dt>
-        Price $
-      </dt>
-      <dd>
-        <%= @the_gift.price %>
-      </dd>
-
-      <dt>
-        Status of gift
-      </dt>
-      <dd>
-        <%= @the_gift.status_of_gift %>
-      </dd>
-
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_gift.description %>
-      </dd>
-
-      <dt>
-        Category
-      </dt>
-      <dd>
-        <%= @the_gift.category.name %>
-      </dd>
-
-    
-
-      <dt>
-        Requester
-      </dt>
-      <dd>
-        <%= @the_gift.user.first_name + " " + @the_gift.user.last_name%>
-      </dd>
-
-      <dt>
-        Created
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_gift.updated_at) %> ago
-      </dd>
-    </dl>
   </div>
-</div>
 
-<hr>
+  <hr>
 
 
-<%if @the_gift.status_of_gift == "Purchased"%>
+  <%if @the_gift.status_of_gift == "Purchased"%>
 
-    <h2>
-      This gift for <%=@the_gift.user.first_name%> has already been purchased.
-    </h2>
+      <h2>
+        This gift for <%=@the_gift.user.first_name%> has already been purchased.
+      </h2>
 
-<%else%>
+  <%else%>
 
-<div>
   <div>
-    <h2>
-      Purchase gift for <%=@the_gift.user.first_name%>
-    </h2>
+    <div>
+      <h2>
+        Purchase gift for <%=@the_gift.user.first_name%>
+      </h2>
 
-    <form action="/buy_gift/<%= @the_gift.id %>"  method="post" >
+      <form action="/buy_gift/<%= @the_gift.id %>"  method="post" >
 
-      <button>
-        Purchase Gift
-      </button>
-    </form>
+        <button>
+          Purchase Gift
+        </button>
+      </form>
+    </div>
   </div>
+
+  <%end%>
+
+
+
+  <hr>
 </div>
-
-<%end%>
-
-
-
-<hr>
