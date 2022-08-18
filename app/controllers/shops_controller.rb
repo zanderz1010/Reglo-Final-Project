@@ -22,7 +22,7 @@ class ShopsController < ApplicationController
     the_shop.website = params.fetch("query_website")
     the_shop.name_of_shop = params.fetch("query_name_of_shop")
     the_shop.user_shop_id = @current_user.id
-    # the_shop.where_to_buys_count = params.fetch("query_where_to_buys_count")
+    the_shop.where_to_buys_count = 0
 
     if the_shop.valid?
       the_shop.save

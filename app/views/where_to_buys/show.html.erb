@@ -9,7 +9,7 @@
   <div>
     <div>
       <h1>
-        Where to buy pairing #<%= @the_where_to_buy.id %> details
+        Where to Buy - "<%= @the_where_to_buy.shop.name_of_shop %>" and "<%= @the_where_to_buy.gift.name_of_gift %>" Details
       </h1>
 
       <div>
@@ -42,7 +42,7 @@
         </dd>
 
         <dt>
-          Updated at
+          Updated
         </dt>
         <dd>
           <%= time_ago_in_words(@the_where_to_buy.updated_at) %> ago

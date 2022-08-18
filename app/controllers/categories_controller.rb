@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
     the_category = Category.where({ :id => the_id }).at(0)
 
     the_category.name = params.fetch("query_name")
-    the_category.gifts_count = params.fetch("query_gifts_count")
+    the_category.gifts_count = 0
 
     if the_category.valid?
       the_category.save

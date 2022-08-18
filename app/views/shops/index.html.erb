@@ -59,11 +59,11 @@
           </th>
 
           <th>
-            Website
+            Name of shop
           </th>
 
           <th>
-            Name of shop
+            Website
           </th>
 
           <th>
@@ -79,14 +79,16 @@
           <td>
             <%= a_shop.id %>
           </td>
+          
+          <td>
+            <%= a_shop.name_of_shop %>
+          </td>
+
 
           <td>
             <%= a_shop.website %>
           </td>
 
-          <td>
-            <%= a_shop.name_of_shop %>
-          </td>
 
           <td>
             <%= time_ago_in_words(a_shop.updated_at) %> ago

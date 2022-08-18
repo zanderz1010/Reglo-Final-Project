@@ -9,7 +9,7 @@
   <div>
     <div>
       <h1>
-        Shop #<%= @the_shop.id %> details
+        Shop - "<%= @the_shop.name_of_shop %>" Details
       </h1>
 
       <div>
@@ -52,7 +52,7 @@
         </dd>
 
         <dt>
-          Updated at
+          Updated
         </dt>
         <dd>
           <%= time_ago_in_words(@the_shop.updated_at) %> ago
